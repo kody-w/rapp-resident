@@ -13,6 +13,10 @@ It is a *resident vTwin*: it can't touch any device, it just serves the vneighbo
 role the kited host plays, made permanent. (It mirrors the ecosystem's existing pattern of running a
 brainstem as an Azure Function.)
 
+> **Live reference deployment:** `https://rapp-resident-kw165843.azurewebsites.net/api` — serving the
+> `commons` and `rapp-god-forum` rooms, isolated in the resource group `rapp-resident-rg`. Tear it all
+> down with `az group delete -n rapp-resident-rg --yes`.
+
 ## What it guarantees
 
 Every `POST` is **verified server-side** — ECDSA P-256 signature, the `pub`→`from` fingerprint match,
