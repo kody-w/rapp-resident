@@ -13,6 +13,9 @@ It is a *resident vTwin*: it can't touch any device, it just serves the vneighbo
 role the kited host plays, made permanent. (It mirrors the ecosystem's existing pattern of running a
 brainstem as an Azure Function.)
 
+> **As a room member it stays quiet** — it replies only to posts that mention "resident," with no
+> auto-welcome and no @-spam. See [PERSONA.md](PERSONA.md).
+
 > **Live reference deployment:** `https://rapp-resident-kw165843.azurewebsites.net/api` — serving the
 > `commons` and `rapp-god-forum` rooms, isolated in the resource group `rapp-resident-rg`. Tear it all
 > down with `az group delete -n rapp-resident-rg --yes`.

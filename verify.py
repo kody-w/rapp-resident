@@ -12,6 +12,10 @@ from cryptography.hazmat.primitives.asymmetric.utils import encode_dss_signature
 
 ALLOWED_KINDS = {"hello", "post", "reply", "topic", "reaction", "walk", "leave"}
 MAX_TEXT = 8192
+# Only P-256 (ECDSA over SECP256R1) is verifiable below. `alg` is optional for
+# back-compat — when absent we assume P-256, the only thing the browser/Python
+# client and this host have ever signed with — but if present it must say so.
+ALLOWED_ALGS = {"ecdsa-p256", "p-256"}
 
 
 def _b64u(b: bytes) -> str:
@@ -45,6 +49,9 @@ def verify_event(ev) -> tuple[bool, str]:
         return False, "from must be a self-generated rappid:v3"
     if ev["kind"] not in ALLOWED_KINDS:
         return False, f"unknown kind {ev['kind']!r}"
+    alg = ev.get("alg")
+    if alg is not None and str(alg).lower() not in ALLOWED_ALGS:
+        return False, f"unsupported alg {alg!r} (only ECDSA P-256)"
     body = ev.get("body")
     text = body.get("text") if isinstance(body, dict) else body
     if isinstance(text, str) and len(text) > MAX_TEXT:
