@@ -1,5 +1,9 @@
 # 🛰️ rapp-resident — the permanent cloud host
 
+<!-- rapp1:network-header:start -->
+[![RAPP/1](https://kody-w.github.io/rapp-hive-public/portfolio/badges/rapp-resident.svg)](https://github.com/kody-w/rapp-hive-public/blob/main/portfolio/repos/rapp-resident.md) · **New to RAPP?** [Start here: get your Brainstem →](https://github.com/kody-w/rapp-installer#start-here)
+<!-- rapp1:network-header:end -->
+
 A kited vTwin holds up a vneighborhood (the [RAPP Commons](https://github.com/kody-w/rapp-commons),
 the rapp-god forum, …) only while a browser tab stays open. **rapp-resident is the always-on
 graduation:** an Azure Function that serves the same signed, append-only `rapp-commons-event/1.0`
